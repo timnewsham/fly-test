@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-var t = template.Must(template.New("index.html.tmpl").Parse(`
+var t = template.Must(template.New("index.html").Parse(`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +37,7 @@ func main() {
 			"Header": r.Header,
 		}
 
-		t.ExecuteTemplate(w, "index.html.tmpl", data)
+		t.ExecuteTemplate(w, "index.html", data)
 	})
 	log.Println("listening")
 	log.Fatal(http.ListenAndServe(":8080", nil))
